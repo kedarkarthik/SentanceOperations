@@ -26,6 +26,7 @@ namespace StringExercises.Abstract
         //default implementation
         protected string ConvertFirstCharacterToUpperCase(string sentance)
         {
+            //return sentance;
             var letters = sentance.ToCharArray();
             if (char.IsLower(letters[0]))
             {
@@ -38,6 +39,7 @@ namespace StringExercises.Abstract
         //default implementation
         protected string HandlePeriods(string sentance)
         {
+            //return sentance;
             return string.IsNullOrEmpty(sentance)? "" : sentance + ".";
         }
 
@@ -46,8 +48,11 @@ namespace StringExercises.Abstract
         {
             if (ValidateSentance(sentance))
             {
-                // this is a very diluted implementation of a decorator pattern, where reversed sentance is decorated with additional grammar rules 
-                return HandlePeriods(ConvertFirstCharacterToUpperCase((ReverseWordsImpl(sentance.ToLower().Replace(".", "")))));
+                // this is a very diluted implementation of a decorator pattern, where reversed sentance is decorated with additional grammar rules                 
+                var sentanceLower = sentance.ToLower().Replace(".", "");
+                var reverseWords = ReverseWordsImpl(sentanceLower);
+                var sentanceUpper = ConvertFirstCharacterToUpperCase(reverseWords);
+                return HandlePeriods(sentanceUpper);
             }
             else
             {

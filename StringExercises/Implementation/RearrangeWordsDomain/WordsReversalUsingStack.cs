@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using StringExercises.Abstract;
 using System.Collections;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using StringExercises.Contract;
@@ -14,16 +15,24 @@ namespace StringExercises.Implementation.RearrangeWordsDomain
 
         public override string ReverseWordsImpl(string sentance)
         {
-            var stack = new ConcurrentStack<string>();
+            var stack = new Stack<string>();
             var words = sentance.Split();
-            Parallel.ForEach(words, (word) => stack.Push(word));
-            var stringBuilder = new StringBuilder();   
-            while (!stack.IsEmpty)
+            foreach (var word in words)
             {
-                string word;
-                if (stack.TryPop(out word))
+                stack.Push(word);
+            }
+            var stringBuilder = new StringBuilder();   
+            while (stack.Count > 0)
+            {
+                string word = stack.Pop();
+                switch (stack.Count)
                 {
-                    stringBuilder.Append(word + " ");                    
+                    case 0:
+                        stringBuilder.Append(word);
+                        break;
+                    default:
+                        stringBuilder.Append(word + " ");
+                        break;
                 }
             }
             return stringBuilder.ToString();

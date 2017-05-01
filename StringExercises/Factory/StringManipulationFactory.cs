@@ -5,7 +5,7 @@ using StringExercises.Implementation.RearrangeWordsDomain;
 
 namespace StringExercises.Factory
 {
-    class StringManipulationFactory
+    public class StringManipulationFactory
     {
         public IReverseSentance GetReverseSentance(SentanceOperationTypes type)
         {
@@ -24,11 +24,14 @@ namespace StringExercises.Factory
                 case SentanceOperationTypes.ReversecharactersInPlace:
                     handler = new ReverseCharactersUsingStringLibraryInaSentance();
                     break;
-                case SentanceOperationTypes.ReverseWordsUsingRegex:
+                case SentanceOperationTypes.WordsReversalUsingRegex:
                     handler = new WordsReversalUsingRegex();
                     break;
-                case SentanceOperationTypes.ReverseWordsUsingConcurrentStack:
+                case SentanceOperationTypes.WordsReversalUsingStack:
                     handler = new WordsReversalUsingStack();
+                    break;
+                case SentanceOperationTypes.WordsReversalUsingInPlace:                    
+                    handler = new WordsReversalUsingInPlace();
                     break;
                 default:
                     handler = new ReverseCharactersUsingStringLibraryInaSentance();

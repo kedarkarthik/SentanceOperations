@@ -6,7 +6,8 @@ namespace StringExercises.Enums
         ReverseUsingStringLibrary,
         ReverseUsingArrays,
         ReversecharactersInPlace,
-        ReverseWordsUsingRegex,
-        ReverseWordsUsingConcurrentStack
+        WordsReversalUsingRegex,
+        WordsReversalUsingStack,
+        WordsReversalUsingInPlace
     }
 }

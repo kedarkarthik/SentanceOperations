@@ -4,12 +4,13 @@ using StringExercises.Factory;
 
 namespace StringExercises
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             const string sentance = "I am kedar karthik.";
-
+            Console.WriteLine("Source sentance:");
+            Console.WriteLine(sentance + Environment.NewLine);
             var factory = new StringManipulationFactory();
             
             var options = Enum.GetValues(typeof (SentanceOperationTypes));

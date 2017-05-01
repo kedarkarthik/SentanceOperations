@@ -1,6 +1,6 @@
 ﻿namespace StringExercises.Contract
 {
-    interface IReverseSentance
+    public interface IReverseSentance
     {
         string Reverse(string sentance);
     }
