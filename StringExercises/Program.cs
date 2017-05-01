@@ -8,7 +8,7 @@ namespace StringExercises
     {
         static void Main(string[] args)
         {
-            const string sentance = "I am kedar karthik.";
+            const string sentance = "This is a great evening for a walk with my dog.";
             Console.WriteLine("Source sentance:");
             Console.WriteLine(sentance + Environment.NewLine);
             var factory = new StringManipulationFactory();
